@@ -1,45 +1,99 @@
-# Kubernetes Microservice Deployment with Helm
+Kubernetes Deployment with Helm Charts on Minikube
+A complete guide and implementation for deploying a containerized microservice on a local Kubernetes cluster using Helm charts and Minikube.
 
-## Introduction
+📌 Project Description
+This project demonstrates the deployment of a Node.js microservice using Kubernetes and Helm. It leverages Minikube for local cluster setup, Docker for containerization, and Helm charts for efficient deployment and management of Kubernetes resources. It covers installation, service exposure, scaling, and version upgrades of the microservice.
 
-This project demonstrates how to deploy a microservice using **Minikube**, **Helm**, and **Kubernetes** on a local machine. The microservice is Dockerized and deployed to a Minikube Kubernetes cluster using Helm charts.
+🚀 Features
+Local Kubernetes cluster setup using Minikube
 
----
+Docker-based microservice containerization
 
-## Prerequisites
+Helm chart for Kubernetes deployment and management
 
-Before you begin, ensure you have the following installed:
+Exposing services via Minikube
 
-- **Minikube**: A local Kubernetes cluster.
-- **Helm**: A package manager for Kubernetes.
-- **Docker**: For building the Docker image of the microservice.
+Deployment scaling using kubectl and Helm
 
-You can follow these official guides to install the required tools:
+Version upgrades through Helm chart values
 
-- [Install Minikube](https://minikube.sigs.k8s.io/docs/)
-- [Install Helm](https://helm.sh/docs/intro/install/)
-- [Install Docker](https://docs.docker.com/get-docker/)
+Horizontal Pod Autoscaling (HPA) configuration
 
----
+🧰 Technologies Used
+Node.js – Microservice backend
 
-## Step 1: Install Minikube
+Docker – Containerization
 
-1. **Install Minikube**: Use `brew install minikube` (for macOS) or the appropriate installation command for your system.
-2. **Start Minikube**: Run `minikube start` to initialize the local Kubernetes cluster.
-3. **Verify Minikube**: Run `kubectl cluster-info` to confirm the cluster is running.
+Kubernetes – Container orchestration
 
----
+Minikube – Local Kubernetes cluster
 
-## Step 2: Install Helm
+Helm – Kubernetes package manager
 
-1. **Install Helm**: Use `brew install helm` (for macOS) or follow the installation instructions for your system.
-2. **Initialize Helm**: Run `helm repo update` to configure Helm with the official charts repository.
-3. **Verify Helm**: Run `helm version` to check the Helm installation.
+🛠️ Setup Instructions
+1. Prerequisites
+Docker installed locally
 
----
+Minikube installed and configured
 
-## Step 3: Dockerize the Microservice
+Helm CLI installed
 
-1. **Build the Docker image**: Create a Dockerfile and run:
-   ```bash
-   docker build -t microservice-app:v1 .
+Git installed
+
+2. Clone the Repository
+bash
+Copy
+Edit
+git clone https://github.com/Shubh0808/Kubernetes-Deployment-with-Helm-Charts-on-Minikube.git
+cd Kubernetes-Deployment-with-Helm-Charts-on-Minikube
+3. Start Minikube
+bash
+Copy
+Edit
+minikube start
+4. Build and Load Docker Image
+bash
+Copy
+Edit
+eval $(minikube docker-env)
+docker build -t microservice-app:v1 ./app
+5. Install Helm Chart
+bash
+Copy
+Edit
+helm install microservice-release ./microservice-chart
+6. Access the Microservice
+bash
+Copy
+Edit
+minikube service microservice-release-microservice-chart
+7. Upgrade the Microservice
+Update the version/tag in values.yaml and run:
+
+bash
+Copy
+Edit
+helm upgrade microservice-release ./microservice-chart
+8. Scale the Deployment
+bash
+Copy
+Edit
+kubectl scale deployment microservice-release-microservice-chart --replicas=3
+📁 Project Structure
+bash
+Copy
+Edit
+.
+├── app/                      # Node.js microservice source code
+├── microservice-chart/      # Helm chart (templates, values)
+├── README.md
+📄 License
+This project is licensed under the MIT License.
+
+🙌 Acknowledgments
+Thanks to the open-source community for providing the tools and resources to build cloud-native applications.
+
+👤 Author
+Shubham
+GitHub: @Shubh0808
+
