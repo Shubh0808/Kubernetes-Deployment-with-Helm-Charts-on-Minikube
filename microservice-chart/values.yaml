@@ -1,0 +1,36 @@
+# Number of replicas for your application
+replicaCount: 1
+
+# Image settings (repository and tag)
+image:
+  repository: microservice-app
+  tag: "v2"
+
+# Service configuration
+service:
+  type: ClusterIP
+  port: 80
+
+# Ingress configuration (disabled in this case)
+ingress:
+  enabled: false
+  annotations: {}
+  hosts:
+    - host: microservice.local
+      paths:
+        - /
+
+# Resource configuration (you can define CPU and memory limits here)
+resources: {}
+
+# ServiceAccount settings
+serviceAccount:
+  create: true
+  name: ""
+
+# Autoscaling settings (set autoscaling.enabled to false or true based on your needs)
+autoscaling:
+  enabled: false  # Change this to true if you want to enable autoscaling
+  minReplicas: 1  # Minimum number of replicas when autoscaling is enabled
+  maxReplicas: 3  # Maximum number of replicas when autoscaling is enabled
+  targetCPUUtilizationPercentage: 80  # CPU usage threshold for autoscaling
