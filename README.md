@@ -89,11 +89,3 @@ Edit
 ├── README.md
 📄 License
 This project is licensed under the MIT License.
-
-🙌 Acknowledgments
-Thanks to the open-source community for providing the tools and resources to build cloud-native applications.
-
-👤 Author
-Shubham
-GitHub: @Shubh0808
-
